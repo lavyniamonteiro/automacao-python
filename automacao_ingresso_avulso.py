@@ -24,23 +24,29 @@ for mesa in range(1,201):
     draw.text((185,480), number, color, font = fnt, anchor='mm') # slote 1
     draw.text((1250,400), number, color, font=fnt_main, anchor='mm') # main
 
-    ing_avulso = ing_avulso.resize((1488,698))
-    posicao = (mesa-1) % 6
+    ing_avulso = ing_avulso.resize((1169, 620))
+    posicao = (mesa-1) % 12
     if posicao == 0 :
         folha = Image.new('RGB',(3508,2480),(255,255,255))
     
     coordenadas = {
-    0: (0, 0), #1
-    1: (1488, 0), #2
-    2: (0, 698), #3
-    3: (1488, 698), #4
-    4: (0, 1396), #5
-    5: (1488, 1396) #6
+    0:  (0, 0),
+    1:  (0, 620),
+    2:  (0, 1240),
+    3:  (0, 1860),
+    4:  (1169, 0),
+    5:  (1169, 620),
+    6:  (1169, 1240),
+    7:  (1169, 1860),
+    8:  (2338, 0),
+    9:  (2338, 620),
+    10: (2338, 1240),
+    11: (2338, 1860)
 }
 
     folha.paste(ing_avulso, coordenadas[posicao])
 
-    if posicao == 5 or mesa == 200:
+    if posicao == 11 or mesa == 200:
         num_folha += 1
         nome_folha = f'ing_avulso_{num_folha}.png'
         folha.save(nome_folha)
